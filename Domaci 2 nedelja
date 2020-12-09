@@ -1,0 +1,33 @@
+1. За два броја (а и б) исписати њихов: Збир,разлику,производ,количник,остатак при дељењу,степен (а^b)
+let a=5
+let b=10
+var zbir= a+b
+var razlika= a-b
+var proizvod= a*b
+var kolicnik= a/b
+var ostatak= a%2
+Console.log( "sta zelimo")
+
+3. zadatak3.js
+    1. Направити променљиву која има вредност неког броја (цео број)
+    2. Уколико је број дељив са 3, исписати поруку: Број _ је дељив са 3
+    3. Ако није, Број _ није дељив са 3
+    
+var a = prompt("Unesite broj:");
+	if ( a%3 == 0 ) {
+		alert ("Broj je deljiv sa tri");
+	} else {
+		alert ("Broj nije deljiv sa tri");
+	}
+  
+  zadatak4.js
+    1. Исписати првих 1000 бројева дељивих са 5
+    
+    Console.log("Brojevi koji su deljivi sa 5 su:");
+     for ( i = 1; i <= 1000; i++ ){
+      if (i % 5 == 0){
+         Console.log(i);
+       }
+     }
+         Console.log("Nisu deljivi sa 5");
+    
