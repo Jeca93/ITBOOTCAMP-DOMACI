@@ -1,0 +1,73 @@
+Zadatak 1
+    function povrsinaPice(precnik) {
+            this.precnik = precnik;
+
+            this.povrsina = function () {
+                return Math.PI * (this.precnik / 2) * (this.precnik / 2);
+            };
+
+        }
+
+        var c = new povrsinaPice(24);
+
+        document.write('Povrsina pice =', c.povrsina().toFixed(2));
+       
+
+
+Zadatak 2
+        var i
+       for (var i=1; i <= 100; i++)
+{
+    if (i % 15 == 0)
+        document.write("FizzBuzz");
+    else if (i % 3 == 0)
+    document.write("Fizz");
+    else if (i % 5 == 0)
+    document.write("Buzz");
+    else
+    document.write(i,",");
+}
+   
+Zadatak 3
+
+n=5
+for(i=1; i<=n; i++){
+
+for(j=1; j <=i; j++)
+
+document.write("#")
+
+document.write("<br>");
+}
+
+Zadatak 4
+
+     var i, j, n;
+    for(i=1; i<=5; i++)
+    {
+    for(j=5; j>i; j--)
+        document.write("&nbsp;&nbsp;");
+    for(n=1; n<=i; n++)
+        document.write("#");
+        document.write("<br>");
+}
+      
+Zadatak 5
+
+ var i, j, k;
+        n = 5
+        for (i = 1; i <= 5; i++) {
+            for (j = 5; j > i; j--)
+                document.write("&nbsp;&nbsp;");
+            for (k = 1; k <= i; k++)
+                document.write("#");
+            document.write("&nbsp;&nbsp;");
+
+
+            for (j = 1; j <= i; j++)
+
+                document.write("#")
+
+            document.write("<br>");
+        }
+
