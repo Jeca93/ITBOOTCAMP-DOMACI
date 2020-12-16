@@ -1,0 +1,43 @@
+1. Написати функцију која за параметар прима број сати (0-24) и у зависности од доба дана исписује поруке: Добро јутро , Добар дан или Добро вече.
+
+   var now = new Date();
+        VratiVReme(now);
+
+        function VratiVReme(now) {
+            var hrs = now.getHours();
+            var mns = now.getMinutes();
+            var secs = now.getSeconds();
+            document.writeln("<p> Sada je " + now + " </p>");
+            document.writeln("<p> Trenutno je " + hrs + " sati.</p>");
+            document.writeln("<p> Trenutno je " + mns + " minuta.</p>");
+            document.writeln("<p> Trenutno je " + secs + " sekundi.</p>");
+
+            if (hrs < 12) {
+                document.writeln("<h2>Dobro jutro!</h2>");
+            }
+            if (hrs < 18) {
+                document.writeln("<h2>Dobar dan!</h2>");
+            }
+            else {
+                document.writeln("<h2>Dobro vece!</h2>");
+            }
+
+        }
+
+
+2. Написати функцију која израчунава цену пице по квадратном центиметру (параметри функције су полупречник у цм,  и цена пице)
+
+
+        function povrsinaPice(poluprecnik, cena) {
+            this.poluprecnik = poluprecnik;
+            this.cena = cena;
+
+            this.povrsina = function () {
+                return (Math.PI * this.poluprecnik * this.poluprecnik) / this.cena;
+            };
+
+        }
+
+        var parametri = new povrsinaPice(10, 400);
+
+        document.write('Cena po cm =', parametri.povrsina().toFixed(2)+'dinara');
