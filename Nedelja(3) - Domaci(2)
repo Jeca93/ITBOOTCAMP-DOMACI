@@ -1,0 +1,46 @@
+1. Написати функцију која исписује све елементе низа који су дељиви са 5
+ function divisibleByFive(arr) {
+         for (i=1; i<=arr.length; i++){
+	            if( arr[i]%5 == 0){
+               document.write(arr[i] + ' ');
+                                  }
+              }
+        }
+	  document.write(divisibleByFive([1,2,3,4,5,10,15,23,1,5]));
+	  
+2.Написати функцију која враћа колико пице вам је довољно за доживотно снабдевање\
+Уноси се колико пице поједете на месечном нивоу, и колико година имате
+(Рачуна се да је довољно достављати до стоте године)
+I NACIN:
+
+function lifeSupply(numPerMonth,age){
+         
+			 var sum= (numPerMonth * 12)*(100 - age)
+			 return sum
+     }
+	 document.write("Za dozivotno snabdevanje nam je potrebno:")
+	 document.write("<br>")
+	 document.write(lifeSupply(10,26))
+	 document.write(' '+"pica.")
+   
+ II NACIN:
+ 
+ HTML:
+ <div class="calculator">
+  <h3 class="question"> Koliko pice nam je dovoljno do kraja zivota: </h4>
+  <p> Broj godina  <input type="text" id="myAge" class="input" placeholder="Koliko godina imate?" /> . </p>
+  <p> Svakog meseca pojedem: <input type='text' id="pizza" class="input" placeholder="Broj narucenih pica?"/> . </p>
+  <h4 class="question"> Izracunacu umesto tebe! </h4>
+  <input type="button" id="myButton" value="Izracunaj" onclick="lifeSupply()" />
+  <p> Potrebno ti je <input type="text" id="numPizza" class="input"/> pica do 100 godina. </p>
+</div>
+</div> 
+
+JS:
+function lifeSupply(){
+  var myAge=document.getElementById('myAge').value;
+  var maxAge=100;
+  var numPizza= document.getElementById('pizza').value; 
+  var lifeSupply=(numPizza * 12) * (maxAge - myAge); 
+  var result= document.getElementById('numPizza').value=lifeSupply; 
+}
