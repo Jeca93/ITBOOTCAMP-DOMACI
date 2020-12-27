@@ -1,13 +1,67 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-  </head>
-  <body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    
  
+    <title>Pokemoni</title>
+</head>
+<body>
+
+    <style>
+        * {
+    margin: 0px;
+    padding: 0;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+    background: #cccccc;
+}
+a {
+    position: relative;
+    display: inline-block;
+    padding: 12px 36px;
+    margin: 10px 0;
+    color: #fff;
+    text-decoration: none;
+    font-size: 18px;
+    letter-spacing: 2px;
+    border-radius: 40px;
+    background: linear-gradient(90deg,#0162c8,#55e7fc);
+
+}
+a:nth-child(2){
+    background: linear-gradient(90deg,#755bea,#ff72c0);
+}
+span {
+    position: absolute;
+    background: #fff;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    border-radius: 50%;
+    animation: animate 1s linear infite;
+}
+p {
+    border: 2px solid;
+    padding: 5px;
+}
+
+    </style>
+
+    <div class="wrapper">
+	<a href="#"	<button id="prikaz">PRIKAZI POKEMONE</button></a>
+	<a href="#"	<button id="pobednik">PRIKAZI NAJJACEG POKEMONA</button></a>
+    </div>
+    <div id="divPrikaz"></div>
+
+
     <script>
- 
+       
+
  let bulbasaur = {
     ime: 'Bulbasaur',
     id: 001,
@@ -36,9 +90,9 @@ let charizard = {
     tip: 'vatreni',
     sposobnosti: ['rezanje', 'solarna moc'],
     karakteristike: {
-        attack: 84,
-        defense: 78,
-        speed: 100
+        napad: 84,
+        odbrana: 78,
+        brzina: 100
     }
 }
 let golbat = {
@@ -54,7 +108,7 @@ let golbat = {
 }
 
 let pikachu = {
-    ime: 'PIkachu',
+    ime: 'Pikachu',
     id: 025,
     tip: 'elektricni',
     sposobnosti: ['statisticki elektricite', 'brzi napad'],
@@ -77,24 +131,84 @@ let eevee = {
 }
 let pokemon = [bulbasaur, chikorita, pikachu, eevee, golbat, charizard ]
 
-console.log(pokemon)
+const buttons = document.querySelectorAll('a');
+buttons.forEach(btn =>{
+    btn.addEventListener('click',function(e){
+        let x = e.clientX - e.target.offsetLeft;
+        let y = e.clientY - e.target.offsetTop;
 
-const pokeSposobnosti2 = (arr) => {
-    let arr2 = []
-    arr.forEach(el => {
-        el.sposobnosti.forEach(el1 => arr2.push(el1))
-    })
-    return arr2
+        let ripples = document.createElement('span');
+        ripples.style.left = x + 'px';
+        ripples.style.top = y + 'px';
+        this.appendChild(ripples);
+    }
+    )
 }
-console.log(pokeSposobnosti2(pokemon))
+)
 
-// Сортирати покемоне по брзини, растуће.
 
-function sortiranjeBrzina(niz){
-     return niz.sort((a, b) => a.karakteristike.brzina - b.karakteristike.brzina)
-  }
-  console.log(sortiranjeBrzina(pokemon));
+let takmicenje 
+
+function najjaciPokemon1(niz){
+    takmicenje = niz.sort((a, b) => b.karakteristike.napad - a.karakteristike.napad)
+             let pobednik = niz[0]
+             return pobednik
+}
+niz2 =[...pokemon]
+console.log(najjaciPokemon1(niz2))
+
+
+let btnPrikaz = document.querySelector('#prikaz')
+let btnPobednik = document.querySelector('#pobednik')
+let divWrapper = document.querySelector('.wrapper')
+let divPrikaz= document.querySelector('#divPrikaz')
+
+
+
+
+btnPrikaz.addEventListener('click',()=>{
+    divPrikaz.innerHTML = ""
+
+    pokemon.forEach(el => {
+    const divPokemoni = document.createElement('div')
+    const opisPokemona = document.createElement('p')
+    opisPokemona.innerHTML = `  Ime : ${el.ime}<br><hr>
+                                Tip : ${el.tip}<br><hr>
+                                Sposobnost : ${el.sposobnosti}<br><hr>
+                                Karakteristike: <hr>
+                                                napad: ${el.karakteristike.napad}<br>
+                                                odbrana: ${el.karakteristike.odbrana}<br>
+                                                brzina: ${el.karakteristike.brzina}
+    `
+    const img = document.createElement('img')
+      img.src =`${el.ime}.png`
+      divPokemoni.append(opisPokemona,img)
+      divPrikaz.appendChild(divPokemoni)
+    })  
+
+})
+
+
+btnPobednik.addEventListener('click', ()=>{ 
+divPrikaz.innerHTML = ""
+let najjaci = najjaciPokemon1(niz2)
+
+const divPokemoni = document.createElement('div')
+    const opisPokemona = document.createElement('p')
+    opisPokemona.innerHTML = `  Ime : ${najjaci.ime}<br><hr>
+                                Tip : ${najjaci.tip}<br><hr>
+                                Sposobnost : ${najjaci.sposobnosti}<br><hr>
+                                Karakteristike: <br>
+                                    napad: ${najjaci.karakteristike.napad}<br>
+                                    odbrana: ${najjaci.karakteristike.odbrana}<br>
+                                    brzina: ${najjaci.karakteristike.brzina}<br>
+    `
+    const img = document.createElement('img')
+    img.src =`${najjaci.ime }.png`
+    divPokemoni.append(opisPokemona,img)
+    divPrikaz.appendChild(divPokemoni)
+
+})
     </script>
-
-  </body>
+</body>
 </html>
