@@ -1,0 +1,67 @@
+ <style>
+        .mess {
+          border: 2px solid #333300;
+          padding: 5px;
+          margin-bottom: 10px;
+        }
+    </style>
+    
+    
+    <h1>Dobrodosli, ovde mozete izvrsiti porudzbinu:</h1>
+    <textarea class="mess" rows="5" cols="150">
+       
+        </textarea><br>
+    <button id="btn1">Poruci</button><hr>
+    <button id="btn2">Poruci</button> <hr>
+    <button id="btn3">Poruci odmah</button><hr>
+    <button id="btn4">Poruci odmah</button>
+    
+    
+    <script>
+
+ const message = document.querySelector('.mess')
+const poruzbina1 = document.querySelector('.btn1')
+const poruzbina2 = document.querySelector('.btn2')
+const poruciOdmah = document.querySelector('.btn3')
+const poruciOdmah2 = document.querySelector('.btn4')
+var count = 0
+let newDate = new Date()
+let date = `[${newDate.getFullYear()}-${newDate.getMonth()}-${newDate.getDate()}]`
+let time = `[${newDate.getHours()}:${newDate.getMinutes()}:${newDate.getSeconds()}]`
+
+
+btn1.addEventListener('click', () => {
+    count++
+    console.log(count)
+})
+btn2.addEventListener('click', () => {
+    count++
+    console.log(count)
+})
+btn3.addEventListener('click', () => {
+    if(count == 0){
+        message.textContent = `Niste porucili nista, probajte ponovo!`
+    }
+    else if(count == 1){
+        message.textContent = `Narucili ste 1 picu. Hvala na poverenju. :)\n ${date} \n ${time}`
+        count = 0
+    }
+    else if (count >1 ){
+        message.textContent = `Narucili ste ${count} pica.\n Datum porucivanja: ${date} \n Vreme porucivanja: ${time}`
+        count = 0
+    }
+})
+btn4.addEventListener('click', () => {
+    if(count == 0){
+        message.textContent = `Nema porudzbina za sada. probajte ponovo!`
+    }
+    else if(count == 1){
+        message.textContent = `Narucili ste 1 picu. Hvala na poverenju. :)\n ${date} \n ${time}`
+        count = 0
+    }
+    else if (count >1 ){
+        message.textContent = `Narucili ste ${count} pica.\n ${date} \n ${time}`
+        count = 0
+    }
+})
+    </script>
