@@ -43,7 +43,7 @@ btn3.addEventListener('click', () => {
         message.textContent = `Niste porucili nista, probajte ponovo!`
     }
     else if(count == 1){
-        message.textContent = `Narucili ste 1 picu. Hvala na poverenju. :)\n ${date} \n ${time}`
+        message.textContent = `Narucili ste 1 picu. Hvala na poverenju. :)\n Datum porucivanja: ${date} \n Vreme porucivanja: ${time}`
         count = 0
     }
     else if (count >1 ){
