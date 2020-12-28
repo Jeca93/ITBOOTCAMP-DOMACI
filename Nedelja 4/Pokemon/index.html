@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+ 
+    <script>
+ 
+ let bulbasaur = {
+    ime: 'Bulbasaur',
+    id: 001,
+    tip: 'travnati',
+    sposobnosti: ['bujanje', 'klorofil'],
+    karakteristike: {
+        napad: 49,
+        odbrana: 49,
+        brzina: 45
+    }
+}
+let chikorita = {
+    ime: 'Chikorita',
+    id: 152,
+    tip: 'travnati',
+    sposobnosti: ['bujanje', 'tresak telom'],
+    karakteristike: {
+        napad: 49,
+        odbrana: 65,
+        brzina: 45
+    }
+}
+let charizard = {
+    ime: 'Charizard',
+    id: 006,
+    tip: 'vatreni',
+    sposobnosti: ['rezanje', 'solarna moc'],
+    karakteristike: {
+        attack: 84,
+        defense: 78,
+        speed: 100
+    }
+}
+let golbat = {
+    ime: 'Golbat',
+    id: 042,
+    tip: 'otrovni',
+    sposobnosti: ['brzi napad', 'infiltrator'],
+    karakteristike: {
+        napad: 80,
+        odbrana: 70,
+        brzina: 90
+    }
+}
+
+let pikachu = {
+    ime: 'PIkachu',
+    id: 025,
+    tip: 'elektricni',
+    sposobnosti: ['statisticki elektricite', 'brzi napad'],
+    karakteristike: {
+        napad: 55,
+        odbrana: 30,
+        brzina: 90
+    }
+}
+let eevee = {
+    ime: 'Eevee',
+    id: 133,
+    tip: 'Normalni',
+    sposobnosti: ['bezanje', 'snalazljivost'],
+    karakteristike: {
+        napad: 55,
+        odbrana: 50,
+        brzina: 55
+    }
+}
+let pokemon = [bulbasaur, chikorita, pikachu, eevee, golbat, charizard ]
+
+console.log(pokemon)
+
+const pokeSposobnosti2 = (arr) => {
+    let arr2 = []
+    arr.forEach(el => {
+        el.sposobnosti.forEach(el1 => arr2.push(el1))
+    })
+    return arr2
+}
+console.log(pokeSposobnosti2(pokemon))
+
+// Сортирати покемоне по брзини, растуће.
+
+function sortiranjeBrzina(niz){
+     return niz.sort((a, b) => a.karakteristike.brzina - b.karakteristike.brzina)
+  }
+  console.log(sortiranjeBrzina(pokemon));
+    </script>
+
+  </body>
+</html>
